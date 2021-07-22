@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DonationWebModelStoreContainer" CdmEntityContainer="DonationWebEntities">
+    <EntitySetMapping Name="tb_Comment">
+      <EntityTypeMapping TypeName="DonationWebModel.tb_Comment">
+        <MappingFragment StoreEntitySet="tb_Comment">
+          <ScalarProperty Name="NoOfPeople" ColumnName="NoOfPeople" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="Town" ColumnName="Town" />
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,75 @@
+﻿@model MVC_DonationWebsite.Models.viewModelDonationWeb
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<div class="row w-100 mx-auto bodyRowSetting">
+
+    @foreach (var item in Model.tb_setting)
+    {
+        if (item.type == "Body")
+        {
+            <div class="col-12 bodyLetter" style="font-size:@item.size;color:@item.colour; ">
+                @Html.Raw(item.textData)
+            </div>
+            break;
+        }
+    }
+</div>
+    
+<div class="row w-100 mx-auto bodyRowSetting">
+
+    @foreach (var item in Model.tb_setting)
+    {
+        if (item.type == "firstGRTitle")
+        {
+            <div class="col-12 bodyTitle" style="font-size:@item.size;color:@item.colour; ">
+                @Html.Raw(item.textData)
+                <hr />
+                <table class="table table-primary rounded">
+                    <thead>
+                        <tr class="bg-primary">                            
+                            <th scope="col" class="text-center tbSetingHeader" >Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr>
+                            <td>
+                                
+                                <div @*onscroll="test(this)"*@ id="scrallBarID" class="enableScrollBar scrollbar-primary">
+                                    <table>
+                                        @for (int i = 0; i < 10; i++)
+                                        {
+
+                                            <tr>
+                                                <td class="commentReducePadding border-0 ">
+                                                    <div class="wholeComment ">
+                                                        <div class="titleComment">
+                                                            <p class=" titleBlock">7</p>
+                                                        </div>
+                                                        <div class="comment">
+                                                            <p class="commentBlock">
+                                                                I envisage that you will
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+            break;
+        }
+    }
+</div>  

@@ -1,0 +1,252 @@
+﻿@model MVC_DonationWebsite.Models.viewModelDonationWeb
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<div class="row w-100 mx-auto bodyRowSetting">
+    <!--the letter-->
+
+    @foreach (var item in Model.tb_setting)
+    {
+        if (item.type == "Body")
+        {
+            <div class="col-12 bodyLetter" style="font-size:@item.size;color:@item.colour; ">
+                @Html.Raw(item.textData)
+            </div>
+            break;
+        }
+    }
+</div>
+
+<div class="row w-100 mx-auto bodyRowSetting">
+    <!--commentBlock-->
+
+    @foreach (var item in Model.tb_setting)
+    {
+        if (item.type == "firstGRTitle")
+        {
+            <div class="col-12 bodyTitle" style=" font-size:@item.size;color:@item.colour;display:flex;">
+                <p class="blockTitle">@Html.Raw(item.textData)</p>
+            </div>
+
+
+            break;
+        }
+    }
+</div>
+<div class="row w-100 mx-auto bodyRowSetting">
+    <div class="col-12 ">
+        <hr />
+    </div>
+</div>
+<div class="row w-100 mx-auto bodyRowSetting">
+    <div class="col-12 bodyTitle">
+        <table class="table table-primary rounded tableComment">
+            <thead>
+                <tr class="bg-primary">
+                    <th scope="col" class="text-center tbSetingHeader">Register your trip</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div id="commentSection" class="enter_comment">
+                            <form>
+                                <div id="dataBlock1" class="form-row" >
+                                    <div class="form-group col-lg-2">
+                                        <small>No of people</small>
+                                        <input type="number" class="form-control"  min="1" required>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <small>Town</small>
+                                        <input type="text" class="form-control"  min="1" required>
+                                    </div>
+                                    <div class="form-group col-lg-2">
+                                        <small>Post code</small>
+                                        <input type="text" class="form-control"  min="1" required>
+                                    </div>
+                                    <div class="form-group col-lg-2">
+                                        <small>From Date</small>
+                                        <input type="date" class="form-control" required>
+                                        
+                                    </div>
+                                    <div class="form-group col-lg-2">
+                                        <small> To date</small>
+                                        <input type="date" class="form-control" required>
+                                        
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-lg-12" style="margin:0;">
+                                        <textarea id="textBoxComment" class="form-control settingPlaceHoder" rows="1" placeholder="Enter your comment" required></textarea>
+                                    </div>
+                                </div>
+                                <div id="dataBlock2" class="form-row justify-content-center" >
+                                    <div class="form-group col-lg-3 buttonSubmitCancel">
+                                        <button type="submit" id="summitButtonRegister" class="btn btn-primary">Post</button>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div @*onscroll="test(this)"*@ id="comment_roll_bar" class="enableScrollBar scrollbar-primary">
+                            <table id="listOfcomment"> 
+                                
+                                
+
+
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+        <div class="container " style="margin-bottom:30px">
+            <div class="row footerComment">
+                <div class="col-lg-6 text-center ">
+                    <label>Total number travelling: </label>
+                </div>
+                <div class="col-lg-6 text-center ">
+                    <label>Total days travelled : </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row w-100 mx-auto bodyRowSetting">
+    
+        @foreach (var item in Model.tb_setting)
+        {
+            if (item.type == "titleMakeDonation")
+            {
+                <div class="col-12 bodyTitle" style="font-size:@item.size;color:@item.colour;display:flex; ">
+                    <p class="blockTitle">@Html.Raw(item.textData)</p>
+
+                </div>
+
+                break;
+            }
+        }
+    </div>
+
+<div class="row w-100 mx-auto bodyRowSetting">
+    <div class="col-12 ">
+        <hr />
+    </div>
+</div>
+<div class="row w-100 mx-auto bodyRowSetting">
+    
+        @foreach (var item in Model.tb_setting)
+        {
+            if (item.type == "makeDonation")
+            {
+                <div class="col-12" style="font-size:@item.size;color:@item.colour;display:flex; ">
+                    @Html.Raw(item.textData)
+                </div>
+                break;
+            }
+        }
+    </div>
+
+<div class="row w-100 mx-auto bodyRowSetting">
+    <!--Make donation-->
+    <div class="col-12">
+
+        <form>
+            <div id="dataBlock1" class="form-row justify-content-center">
+                <div class="form-group col-lg-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                        </div>
+                        <input type="number" id="amountTextBox" class="form-control" placeholder="Amount" min="1" required>
+                        <small>Note: The CWA Disaster Relief Fund is Tax deductable.</small>
+                    </div>                    
+                </div>
+                <div class="form-group col-lg-3 summitDonationCSS">
+                    <button type="submit" id="summitDonation" class="btn btn-warning">Make donation</button><!----------------------->
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="row w-100 mx-auto bodyRowSetting">
+    <div class="col-12" style="display:flex;">
+        <p id="totalDonation" class="btn btn-success"></p>
+    </div>
+</div>
+
+
+<div class="row w-100 mx-auto bodyRowSetting">
+
+    @foreach (var item in Model.tb_setting)
+    {
+        if (item.type == "titleFaceComment")
+        {
+            <div class="col-12 bodyTitle" style="font-size:@item.size;color:@item.colour;display:flex;margin-top:20px; ">
+                <p style="margin-top:20px" class="blockTitle">@Html.Raw(item.textData)</p>
+            </div>
+
+            break;
+        }
+    }
+</div>
+
+<div class="row w-100 mx-auto bodyRowSetting">
+    <div class="col-12 ">
+        <hr />
+    </div>
+</div>
+
+<div class="row w-100 mx-auto bodyRowSetting">
+
+    @foreach (var item in Model.tb_setting)
+    {
+        if (item.type == "faceComment")
+        {
+            <div class="col-12" style="font-size:@item.size;color:@item.colour;display:flex; ">
+                @Html.Raw(item.textData)
+            </div>
+            break;
+        }
+    }
+</div>
+
+<div class="row w-100 mx-auto justify-content-center bodyRowSetting">
+    <div class="col-lg-6 bodyTitle">
+        @foreach (var linkS in Model.tb_setting)
+        {
+            if (linkS.type == "linkFacebook")
+            {
+                <a class="btn btn-primary rounded-pill" style="margin-left:10px;" href="@linkS.textData" target="_blank">Visit Veterans Supporting Farmers Facebook</a>
+                break;
+            }
+        }
+    </div>
+</div>
+<div class="row w-100 mx-auto bodyRowSetting">
+
+    @foreach (var item in Model.tb_setting)
+    {
+        if (item.type == "thanks")
+        {
+            <div class="col-12" style="margin-top:10px;font-size:@item.size;color:@item.colour;display:flex; ">
+                @Html.Raw(item.textData)
+            </div>
+            break;
+        }
+    }
+
+</div>
